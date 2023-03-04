@@ -1,23 +1,25 @@
 package org.example.dao;
 
-import org.example.entities.Projects;
+import java.io.Serializable;
+
+import org.example.entities.Candidate;
 import org.example.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.io.Serializable;
+public class CandidateDaoImpl implements CandidateDao{
 
-public class ProjectDaoImpl implements ProjectDao {
-    
     @Override
-    public boolean save(Projects project) throws Exception {
+    public boolean save(Candidate candidate) throws Exception {
         Session session = null;
         Transaction transaction = null;
 
         try {
             session = HibernateUtils.getSessionFactory().openSession();
             transaction = session.beginTransaction();
-            Serializable result = (Serializable) session.save(project);
+
+            Serializable result = (Serializable) session.save(candidate);
+            
             transaction.commit();
 
             return (result != null);
@@ -27,6 +29,6 @@ public class ProjectDaoImpl implements ProjectDao {
                 session.close();
             }
         }
-
     }
+    
 }

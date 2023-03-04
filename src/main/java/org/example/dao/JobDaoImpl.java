@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import java.io.Serializable;
 
 public class JobDaoImpl implements JobDao {
+
     @Override
     public boolean save(Jobs job) throws Exception {
         Session session = null;

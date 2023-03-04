@@ -15,6 +15,7 @@ public class Jobs {
 
     @Column(name = "job_title", length = 255, nullable = false, unique = true)
     private String jobTitle;
+    
     @Column(name = "min_salary")
     private double minSalary;
 
@@ -27,8 +28,8 @@ public class Jobs {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "job")
     private Set<Employees> employees;
+    
     public Jobs() {
-
     }
 
     public Jobs(String jobId, String jobTitle, double minSalary, double maxSalary) {
