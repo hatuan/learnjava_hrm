@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 public class CourseDAOImpl implements CourseDAO {
 
     // Dependency inject the session factory
-
     @Autowired
     private SessionFactory sessionFactory;
 
