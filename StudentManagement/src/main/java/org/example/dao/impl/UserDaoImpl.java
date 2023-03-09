@@ -1,13 +1,16 @@
-package org.example.dao;
+package org.example.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.example.bean.User;
+import org.example.dao.UserDao;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Repository;
 
-public class UserDaoImpl implements UserDao{
+@Repository
+public class UserDaoImpl implements UserDao {
 
     @Override
     public User checkLogin(User user) {
