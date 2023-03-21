@@ -1,11 +1,9 @@
-package org.example.controller;
+package org.example.StudentManagement.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
-import org.example.entities.Course;
-import org.example.services.CourseService;
+import org.example.StudentManagement.entities.Course;
+import org.example.StudentManagement.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
@@ -20,6 +18,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/course")

@@ -22,6 +22,11 @@
     <!-- Enable web mvc -->
     <mvc:annotation-driven />
     
+    <!--
+    <bean id="validator"
+      class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+    -->
+    
     <!-- Include JS or CSS files in a JSP page -->
     <mvc:resources mapping="/resources/**" location="classpath:/resources/" />
 
