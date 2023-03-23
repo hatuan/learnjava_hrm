@@ -113,7 +113,7 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("Student [id=%, name=%, phone=%, gender=%, gpa=%]", id, name, phone, gender, gpa);
+        return String.format("Student [id=%s, name=%s, phone=%s, gender=%s, gpa=%s]", id, name, phone, gender, gpa);
     }
 
     @Override
