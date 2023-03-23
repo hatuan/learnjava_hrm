@@ -25,7 +25,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional
-    public void saveStudent(Student theStudent) throws RuntimeException{
+    public void saveStudent(Student theStudent) {
+        studentRepository.save(theStudent);
+        /*
         if(theStudent.getId().isEmpty())
             studentRepository.save(theStudent);
         else {
@@ -37,6 +39,7 @@ public class StudentServiceImpl implements StudentService {
 
             studentRepository.save(updateStudent);
         }
+         */
     }
 
     @Override
