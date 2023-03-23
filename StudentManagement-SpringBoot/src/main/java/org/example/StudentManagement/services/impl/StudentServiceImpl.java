@@ -25,8 +25,18 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional
-    public void saveStudent(Student theStudent) {
-        studentRepository.save(theStudent);
+    public void saveStudent(Student theStudent) throws RuntimeException{
+        if(theStudent.getId().isEmpty())
+            studentRepository.save(theStudent);
+        else {
+            Student updateStudent = studentRepository.findById(theStudent.getId()).orElseThrow(() -> new RuntimeException (theStudent.getId()));
+            updateStudent.setName(theStudent.getName());
+            updateStudent.setPhone(theStudent.getPhone());
+            updateStudent.setGender(theStudent.getGender());
+            updateStudent.setGpa(theStudent.getGpa());
+
+            studentRepository.save(updateStudent);
+        }
     }
 
     @Override
