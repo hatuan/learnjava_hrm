@@ -2,7 +2,7 @@ package org.example.StudentManagement.services.impl;
 
 import java.util.List;
 
-import org.example.StudentManagement.dao.CourseDAO;
+import org.example.StudentManagement.repositories.CourseRepository;
 import org.example.StudentManagement.entities.Course;
 import org.example.StudentManagement.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,33 +12,30 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class CourseServiceImpl implements CourseService {
-
-    // Dependency inject the CourseDAO
-
     @Autowired
-    private CourseDAO courseDAO;
+    private CourseRepository courseRepository;
 
     @Override
     @Transactional
     public List<Course> getCourses() {
-        return courseDAO.getCourses();
+        return  courseRepository.findAll();
     }
 
     @Override
     @Transactional
     public void saveCourse(Course theCourse) {
-        courseDAO.saveCourse(theCourse);
+        courseRepository.save(theCourse);
     }
 
     @Override
     @Transactional
-    public Course getCourse(String theId) {
-        return courseDAO.getCourse(theId);
+    public Course getCourse(String theId) throws RuntimeException {
+        return courseRepository.findById(theId).orElseThrow(()->new RuntimeException(theId));
     }
 
     @Override
     @Transactional
     public void deleteCourse(String theId) {
-        courseDAO.deleteCourse(theId);
+        courseRepository.deleteById(theId);
     }
 }
